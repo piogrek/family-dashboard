@@ -1,0 +1,23 @@
+{
+  "name": "dashboard",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Piotr Grochowski <piogrek@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~4",
+    "angular-timer": "~1.3.3"
+  }
+}
