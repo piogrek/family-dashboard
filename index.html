@@ -1,44 +1,18 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="app.dash">
 <head>
     <meta charset="utf-8">
     <title>My HTML File</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="app/css/app.css">
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+
 </head>
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card">
-                <img class="card-img-top" data-src="//holder.js/100%x180/" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Button</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card">
-                <img class="card-img-top" data-src="//holder.js/100%x180/" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Button</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <h3>
-                Weather
-                <small class="text-muted">With faded secondary text</small>
-            </h3>
-        </div>
-    </div>
-</div>
+<body ng-app="dash">
+<ui-view></ui-view>
 </body>
 </html>
