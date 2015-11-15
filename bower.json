@@ -19,6 +19,7 @@
     "angular": "~1.4.7",
     "bootstrap": "~3",
     "angular-ui-router": "~0.2.15",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "angular-google-gapi": "~0.1.3"
   }
 }

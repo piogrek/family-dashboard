@@ -1,1 +1,28 @@
-<h3>Weather</h3><div>weather html</div>
+<h3>Weather</h3>
+<div>
+    <div ng-repeat="(key, period) in forecast.SiteRep.DV.Location.Period | weatherToday">
+        <table>
+
+            <tr ng-repeat="(key, entry) in period.Rep">
+                <td>{{entry.$|weatherTime}}:00</td>
+                <td><i class="{{entry.W|weatherIcon}}"></i> ({{entry.Pp}}%)</td>
+                <td><i class="wi wi-thermometer"></i> {{entry.T}}<i class="wi wi-celsius"></i> ({{entry.F}}<i
+                        class="wi wi-celsius"></i>)
+                </td>
+                <td>
+                    <i class="wi wi-strong-wind"></i>
+                    {{entry.G}}
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <table>
+        <tr ng-repeat="(key, period) in forecast.SiteRep.DV.Location.Period| weatherFuture">
+            <td>{{period.value|amDateFormat:'dddd '}}</td>
+            <td>{{period.Rep | stats: 'min':'T'}} - {{period.Rep | stats: 'max':'T'}}<i class="wi wi-celsius"></i></td>
+            <td>{{period.Rep | stats: 'min':'S'}} - {{period.Rep | stats: 'max':'S'}}</td>
+        </tr>
+    </table>
+
+</div>
