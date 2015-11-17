@@ -1,0 +1,29 @@
+<div>
+    <h2>Today</h2>
+
+    <div ng-repeat="(key, period) in forecast.hourly.SiteRep.DV.Location.Period | weatherToday">
+        <table class="table table-condensed no-border">
+            <tr ng-repeat="(key, entry) in period.Rep">
+                <td>{{entry.$|weatherTime}}:00</td>
+                <td><i class="{{entry.W|weatherIcon}}"></i> ({{entry.Pp}}%)</td>
+                <td><i class="wi wi-thermometer"></i> {{entry.T}}<i class="wi wi-celsius"></i> ({{entry.F}}<i
+                        class="wi wi-celsius"></i>)
+                </td>
+                <td>
+                    <i class="wi wi-strong-wind"></i>
+                    {{entry.G}}
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <canvas id="temp" class="chart chart-line" chart-data="forecast.temp.data"
+            chart-labels="forecast.temp.labels" chart-legend="true" chart-series="forecast.temp.series">
+    </canvas>
+    <canvas id="wind" class="chart chart-line" chart-data="forecast.wind.data"
+            chart-labels="forecast.wind.labels" chart-legend="true" chart-series="forecast.wind.series">
+    </canvas>
+
+
+</div>

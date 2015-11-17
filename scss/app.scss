@@ -1,0 +1,49 @@
+@import "compass/css3/transition";
+@import url(https://fonts.googleapis.com/css?family=Lato:300,700,900,300italic,700italic);
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+}
+
+.dimmable {
+  @include single-transition(opacity, 1s);
+}
+
+.keypressed {
+  .dimmable {
+    opacity: 0.3;
+  }
+}
+
+table.table {
+  &.no-border {
+    td {
+      border: 0;
+    }
+  }
+  &.table-condensed {
+    td {
+      padding: 2px 8px;
+    }
+  }
+  td {
+    &.col-date {
+      width: 25%;
+    }
+  }
+}
+
+calendar, weather > div {
+  > h2:first-child {
+    margin-top: 0;
+  }
+}
+
+h1.time {
+  font-size: 8em;
+  line-height:0.8;
+  margin: 0;
+  //font-weight: 900;
+}

@@ -1,0 +1,26 @@
+<h2>{{calendar.date|amDateFormat:'dddd, MMMM Do YYYY'}}</h2>
+
+
+<table class="table table-condensed no-border">
+    <tr ng-repeat="(key, entry) in calendar.today| orderBy: 'start.dateTime'">
+        <td class="col-date"><span ng-if="!entry.start.date">{{entry.start.dateTime|amDateFormat: 'h:mma'}}</span></td>
+        <td class="col-summary"> {{entry.summary}}</td>
+    </tr>
+</table>
+
+<h3>Tomorrow</h3>
+<table class="table table-condensed no-border">
+    <tr ng-repeat="(key, entry) in calendar.tomorrow| orderBy: 'start.dateTime'">
+        <td class="col-date"><span ng-if="!entry.start.date">{{entry.start.dateTime|amDateFormat: 'h:mma'}}</span></td>
+        <td class="col-summary"> {{entry.summary}}</td>
+    </tr>
+</table>
+
+<h3>Later</h3>
+<table class="table table-condensed no-border">
+    <tr ng-repeat="(key, entry) in calendar.items| orderBy: 'start.dateTime'">
+        <td class="col-date">{{entry.start.dateTime| amDateFormat: 'ddd, Do MMM'}}</td>
+        <td class="col-summary"> {{entry.summary}}</td>
+        <td><span ng-if="!entry.start.date">{{entry.start.dateTime|amDateFormat: '\\a\\t h:mma'}}</span></td>
+    </tr>
+</table>
