@@ -20,7 +20,7 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
             GApi.load('calendar', 'v3');
 
             GAuth.setClient(CLIENT);
-            GAuth.setScope('https://www.googleapis.com/auth/calendar');
+              GAuth.setScope('https://www.googleapis.com/auth/calendar');
 
             GAuth.checkAuth().then(
                 function () {
