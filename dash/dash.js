@@ -236,8 +236,14 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
                     rain = [],
                     wind = [];
 
+                var _i = 0;
                 _.each(data.SiteRep.DV.Location.Period, function (period) {
                     _.each(period.Rep, function (rep) {
+                        _i++;
+                        if (_i == 2) {
+                            _i = 0;
+                            return;
+                        }
                         var time = rep.$ / 60 + ':00';
                         labels.push(time);
                         temp.push(rep.T);
