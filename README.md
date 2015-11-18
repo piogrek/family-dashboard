@@ -1,5 +1,5 @@
 First attempt to create dashboard displaying all important informations like calendar, weather, news etc. 
-Currently it's working on rasperry pi exactly like that: https://www.instagram.com/p/99ACWOG9tH/?taken-by=piogrek
+Currently it's working on raspberry pi exactly like that: https://www.instagram.com/p/99ACWOG9tH/?taken-by=piogrek
 
 You can see demo here http://dash.dev.dothome.co.uk/ 
 
