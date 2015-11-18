@@ -16,6 +16,10 @@ body {
   @include single-transition(opacity, 1s);
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
 .keypressed {
   .dimmable {
     opacity: 0.3;
@@ -26,6 +30,23 @@ calendar {
   max-height: 398px;
   overflow: hidden;
   display: block;
+
+  h2 {
+    font-size: 39px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  table.table.table-condensed {
+    margin-bottom: 5px;
+    td {
+      padding: 2px 8px 2px 0;
+    }
+  }
 }
 
 table.table {
