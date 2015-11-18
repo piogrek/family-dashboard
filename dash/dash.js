@@ -20,7 +20,7 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
             GApi.load('calendar', 'v3');
 
             GAuth.setClient(CLIENT);
-              GAuth.setScope('https://www.googleapis.com/auth/calendar');
+            GAuth.setScope('https://www.googleapis.com/auth/calendar');
 
             GAuth.checkAuth().then(
                 function () {
@@ -34,17 +34,6 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
 
         }
     ])
-    .filter('weatherToday', function () {
-        return function (periods) {
-            var todayDay = moment().format('YYYY-MM-DD') + 'Z'
-            var today = _.filter(periods, function (period) {
-                //console.log('today --', period.value , todayDay);
-                return period.value == todayDay;
-            });
-            //console.log('today', today);
-            return today;
-        }
-    })
     .filter('weatherFuture', function () {
         return function (periods) {
             var todayDay = moment().format('YYYY-MM-DD') + 'Z'
@@ -76,6 +65,7 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
     })
     .filter('weatherIcon', function (weatherData) {
         return function (code) {
+            console.log('code', code);
             return _.propertyOf(weatherData.codes)(code).icon;
         }
     })
@@ -126,6 +116,7 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
             },
             codes: {
                 "NA": "Not available",
+                undefined: "Not available",
                 0: {icon: 'wi wi-night-clear', name: "Clear night"},
                 1: {icon: 'wi wi-day-sunny', name: "Sunny day"},
                 2: {icon: 'wi wi-night-alt-cloudy', name: "Partly cloudy (night)"},
@@ -203,7 +194,24 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
         var refreshWeather = function () {
             weatherData.getData().success(function (data) {
                 $scope.forecast.hourly = data;
-                console.log(data.SiteRep);
+
+
+                var todayDay = moment().format('YYYY-MM-DD') + 'Z';
+                var today = _.filter(data.SiteRep.DV.Location.Period, function (period) {
+                    //console.log('today --', period.value , todayDay);
+                    return period.value == todayDay;
+                });
+
+                var nowMinutes = moment().format('h');
+                //console.log('today', today[0]);
+                var now = _.max(today[0].Rep, function (rep) {
+                    //console.log('today --', period);
+                    return rep.$ <= nowMinutes;
+                });
+                //console.log('now', now);
+                $scope.forecast.now = now;
+
+
                 var labels = [],
                     temp = [],
                     temp2 = [],

@@ -47,3 +47,10 @@ h1.time {
   margin: 0;
   //font-weight: 900;
 }
+
+.today-icons {
+  font-size: 3em;
+  .wi-thermometer,.wi-strong-wind {
+    font-size: 0.8em;
+  }
+}
