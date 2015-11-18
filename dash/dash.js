@@ -167,6 +167,24 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
             }
         }
     })
+    .directive("news1", function () {
+        return {
+            restrict: "E",
+            templateUrl: "dash/news1.html",
+            link: function (scope) {
+
+            }
+        }
+    })
+    .directive("news2", function () {
+        return {
+            restrict: "E",
+            templateUrl: "dash/news2.html",
+            link: function (scope) {
+
+            }
+        }
+    })
     .directive("weather", function () {
         return {
             restrict: "E",
@@ -240,29 +258,6 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
                     series: ['Wind', 'Rain %']
                 }
             });
-            //weatherData.getDaily().success(function (data) {
-            //    $scope.forecast.daily = data;
-            //
-            //    var labels = [],
-            //        temp = [],
-            //        wind = [];
-            //
-            //    _.each(data.SiteRep.DV.Location.Period, function (period) {
-            //        _.each(period.Rep, function (rep) {
-            //            labels.push(moment(period.value).format('ddd'));
-            //            var avgTemp = rep.Dm ? rep.Dm : rep.Nm;
-            //            var avgWind = rep.Gn ? rep.Gn : rep.Gm;
-            //            temp.push(avgTemp);
-            //            wind.push(avgWind);
-            //        });
-            //    });
-            //
-            //    $scope.forecast.week = {
-            //        data: [temp, wind],
-            //        labels: labels,
-            //        series: ['Temp', 'Wind']
-            //    }
-            //});
 
             $timeout(refreshWeather, 5 * 60 * 1000);
         }
@@ -296,6 +291,7 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
             });
 
             $timeout(refreshWeather, 1 * 60 * 1000);
+
         }
         refreshCal();
 
@@ -306,6 +302,7 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
             $timeout(setTime, 1000);
         }
         setTime();
+
 
 
     })

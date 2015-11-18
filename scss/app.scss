@@ -5,6 +5,11 @@ body {
   background: #000;
   color: #fff;
   font-family: 'Lato', sans-serif;
+  overflow: hidden;
+}
+
+.container-fluid {
+  padding: 0; /* remove any padding, we need to get as much as possible from the screen*/
 }
 
 .dimmable {
@@ -15,6 +20,12 @@ body {
   .dimmable {
     opacity: 0.3;
   }
+}
+
+calendar {
+  max-height: 398px;
+  overflow: hidden;
+  display: block;
 }
 
 table.table {
@@ -43,14 +54,14 @@ calendar, weather > div {
 
 h1.time {
   font-size: 8em;
-  line-height:0.8;
+  line-height: 0.8;
   margin: 0;
   //font-weight: 900;
 }
 
 .today-icons {
   font-size: 3em;
-  .wi-thermometer,.wi-strong-wind {
+  .wi-thermometer, .wi-strong-wind {
     font-size: 0.8em;
   }
 }
