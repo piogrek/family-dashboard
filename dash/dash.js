@@ -193,7 +193,7 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
             }
         }
     })
-    .controller("DashController", function DashController($scope, $http, weatherData, calData, $timeout, $document) {
+    .controller("DashController", function DashController($scope, $http, weatherData, calData, $timeout, $document, $window) {
         var dash = this;
 
         $scope.onClick = function (points, evt) {
@@ -309,12 +309,21 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
         }
         setTime();
 
+        var reloadTwitter = function () {
+            if ($window.twttr) {
+                $window.twttr.widgets.load();
+            }
+            $timeout(reloadTwitter, 30000);
+        }
+        $timeout(reloadTwitter, 5000);
+
+        //init twitter widgets
         !function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+            var js, fjs = d.getElementsByTagName(s)[0];
             if (!d.getElementById(id)) {
                 js = d.createElement(s);
                 js.id = id;
-                js.src = p + "://platform.twitter.com/widgets.js";
+                js.src = "//platform.twitter.com/widgets.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }
         }(document, "script", "twitter-wjs");
