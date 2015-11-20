@@ -309,15 +309,19 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
         }
         setTime();
 
-        var reloadTwitter = function () {
-            if ($window.twttr) {
-                $window.twttr.widgets.load();
-            }
-            $timeout(reloadTwitter, 30000);
+        $scope.reloadPage = function () {
+            window.location.reload();
         }
-        $timeout(reloadTwitter, 5000);
+        var timeout = 5 * 60 * 1000;
 
-        //init twitter widgets
+        var reloadTwitter = function () {
+            $scope.reloadPage();
+            //init twitter widgets
+            $timeout(reloadTwitter, timeout);
+        }
+
+        $timeout(reloadTwitter, timeout);
+
         !function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (!d.getElementById(id)) {
@@ -327,6 +331,7 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
                 fjs.parentNode.insertBefore(js, fjs);
             }
         }(document, "script", "twitter-wjs");
+
 
     })
 ;
