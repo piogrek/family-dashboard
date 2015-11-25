@@ -310,9 +310,9 @@ angular.module("app.dash", ["ui.router", "chart.js", "angularMoment", "angular-g
         setTime();
 
         $scope.reloadPage = function () {
-            window.location.reload();
+            //window.location.reload();
         }
-        var timeout = 5 * 60 * 1000;
+        var timeout = 60 * 60 * 1000;
 
         var reloadTwitter = function () {
             $scope.reloadPage();
